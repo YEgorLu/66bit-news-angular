@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <mat-menu #appMenu>
+    <ng-template matMenuContent>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let button of buttons">
+          <button mat-button color="accent" [routerLink]="button.routerLink" class="menu-button">
+            {{button.text}}
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </ng-template>
+  </mat-menu>
+
+  <ng-template #menuButton>
+    <button *ngIf="sideNav; else matMenu" color="accent" mat-icon-button (click)="sideNav && sideNav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <ng-template #matMenu>
+      <button mat-icon-button color="accent" [matMenuTriggerFor]="appMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </ng-template>
+  </ng-template>
+
+
+  <div class="grid">
+    <ng-container *ngTemplateOutlet="menuButton"/>
+    <a [routerLink]="''" class="title"><h1 class="mat-headline-5">Some news watcher</h1></a>
+  </div>
+</mat-toolbar>
+

@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@use "./app/themes" as themes;
+@use "sass:map";
+@use "sass:list";
+
+@include mat.core();
+
+@each $themename, $themeconfig in themes.$themes {
+  @each $light, $config in $themeconfig {
+    .#{$themename}-#{$light} {
+      @include mat.all-component-colors($config);
+    }
+
+    #theme-button-#{$themename}-#{$light} {
+      @include mat.button-color($config);
+    }
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

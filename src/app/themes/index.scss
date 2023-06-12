@@ -1,0 +1,14 @@
+@use "bootstrap" as themes;
+@use "@angular/material" as mat;
+@use "sass:map";
+
+@include mat.all-component-themes(map-get(themes.$grey-theme, "dark"));
+
+$themes: (
+  "grey": themes.$grey-theme,
+  "indigo": themes.$indigo-theme,
+  "orange": themes.$orange-theme
+);
+
+
+

@@ -1,0 +1,23 @@
+<ng-template #postCard let-header="header" let-content="content">
+  <mat-card appearance="outlined" class="post-card">
+    <mat-card-header>
+      <mat-card-title>
+        {{header}}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{content}}</p>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
+
+<div class="posts-wrapper">
+  <mat-grid-list role="list" class="posts-list" cols="1">
+    <ng-container role="listitem" *ngFor="let post of posts; trackBy: cardsTrackBy">
+        <ng-container *ngTemplateOutlet="postCard; context: {header: post.header, content: post.content}"/>
+    </ng-container>
+      <div (inView)="onInView($event)" class="show-more-btn">
+        <button mat-button (click)="onInView(true)">Show more</button>
+      </div>
+  </mat-grid-list>
+</div>

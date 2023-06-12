@@ -1,0 +1,20 @@
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.title {
+  grid-column: span 4;
+  text-align: center;
+}
+
+a.title {
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-button {
+  width: 100%;
+}

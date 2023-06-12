@@ -1,0 +1,16 @@
+<div class="container">
+  <mat-grid-list [cols]="cols" rowHeight="100px">
+    <mat-grid-tile colspan="1" [rowspan]="isMobile ? 1 : rowspan">
+      <mat-slide-toggle (change)="toggleExt()" [ngModel]="light">{{light ? 'Светлый' : 'Темный'}}</mat-slide-toggle>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" [rowspan]="rowspan">
+      <mat-list class="list">
+        <mat-list-item *ngFor="let theme of themes" [ngClass]="'theme-button-container'"
+                       [id]="'theme-button-' + theme + '-dark'">
+          <button type="button" color="primary" class="theme-button" mat-raised-button
+                  (click)="setThemeName(theme)">{{theme}}</button>
+        </mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
